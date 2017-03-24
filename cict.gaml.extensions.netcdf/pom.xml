@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>msi.gama</groupId>
   <artifactId>cict.gaml.extensions.netcdf</artifactId>
-  <packaging>eclipse-plugin</packaging>
+  <packaging>maven-plugin</packaging>
   <parent>
   	<groupId>msi.gama</groupId>
   	<artifactId>msi.gama.experimental.parent</artifactId>

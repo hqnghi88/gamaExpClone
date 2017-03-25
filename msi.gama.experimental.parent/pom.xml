@@ -246,18 +246,7 @@
 						<annotationProcessor>msi.gama.precompiler.GamaProcessor</annotationProcessor>
 					</annotationProcessors>
 				</configuration>
-				<dependencies>
-					<dependency>
-						<groupId>msi.gama</groupId>
-						<artifactId>msi.gama.processor</artifactId>
-						<version>[1.4.0,4.0.0)</version>
-					</dependency>
-					<dependency>
-						<groupId>msi.gama</groupId>
-						<artifactId>msi.gama.ext</artifactId>
-						<version>[0.0.0,4.0.0)</version>
-					</dependency>
-				</dependencies>
+				
 			</plugin>
 			<plugin>
 				<!-- You can see the effect of Execution Environnement here : https://wiki.eclipse.org/Tycho/Execution_Environments 

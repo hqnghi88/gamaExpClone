@@ -120,15 +120,6 @@
 
 	</repositories>
 	
-	<dependencies>
-		<dependency>
-			<groupId>msi.gama</groupId>
-			<artifactId>msi.gama.core</artifactId>
-			<version>1.7.0-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
-
-
 	<modules>
 
 		<!-- <module>../gama.target.platform</module> -->

@@ -1,4 +1,4 @@
 cd msi.gama.experimental.parent &&
-mvn dependency:analyze &&
+mvn validate -U &&
 mvn clean install &&
 cd -

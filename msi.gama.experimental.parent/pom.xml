@@ -15,6 +15,20 @@
 
 	<repositories>
 		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
+			</snapshots>
+			<releases>
+				<checksumPolicy>ignore</checksumPolicy>
+				<enabled>true</enabled>
+			</releases>
+			<updatePolicy>always</updatePolicy>
+			<id>p2Repo</id>
+			<name>p2Repo</name>
+			<url>http://51.255.46.42/updates/repo/</url>
+		</repository>
+		<repository>
 			<id>portfolio-non-maven-dependencies</id>
 			<url>http://buchen.github.io/maven-repo</url>
 		</repository>
@@ -68,19 +82,7 @@
 			<name>sourceforge-repository</name>
 			<url>http://logicaldoc.sourceforge.net/maven/</url>
 		</repository>
-		<repository>
-			<snapshots>
-				<enabled>true</enabled>
-				<checksumPolicy>ignore</checksumPolicy>
-			</snapshots>
-			<releases>
-				<checksumPolicy>ignore</checksumPolicy>
-				<enabled>true</enabled>
-			</releases>
-			<id>p2Repo</id>
-			<name>p2Repo</name>
-			<url>http://51.255.46.42/updates/repo/</url>
-		</repository>
+
 		<repository>
 			<id>pentaho-releases</id>
 			<url>http://repository.pentaho.org/artifactory/repo/</url>

@@ -21,6 +21,17 @@
 		</repository>
 	</distributionManagement>
  -->
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>buchen-maven-repo</id>
+			<url>http://buchen.github.io/maven-repo</url>
+			<layout>default</layout>
+		</pluginRepository>
+		<!-- <pluginRepository> <id>annot-local-repo</id> <url>${project.baseUri}../msi.gama.processor/processor/plugins</url> 
+			</pluginRepository> -->
+	</pluginRepositories>
+	
 			<!--  
 	<pluginRepositories>	
 		<pluginRepository>

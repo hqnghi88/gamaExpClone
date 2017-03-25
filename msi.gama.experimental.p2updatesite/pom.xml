@@ -12,53 +12,46 @@
 	<artifactId>msi.gama.experimental.p2updatesite</artifactId>
 	<packaging>eclipse-repository</packaging>
 
+
 	<distributionManagement>
 		<repository>
-			<id>ssh-repository</id>
-			<url>scpexe://51.255.46.42/./var/www/gama_updates/experimental</url>
-		</repository>
-	</distributionManagement>
-	<pluginRepositories>
-
-		<pluginRepository>
+			<uniqueVersion>false</uniqueVersion>
 			<id>p2Repo</id>
-			<url>http://51.255.46.42/updates/repo/plugins</url>
-			<layout>default</layout>
-		</pluginRepository>
+			<url>scp://51.255.46.42/./var/www/gama_updates/repo</url>
+		</repository>
+		<snapshotRepository>
+			<uniqueVersion>false</uniqueVersion>
+			<id>p2Repo</id>
+			<url>scp://51.255.46.42/./var/www/gama_updates/repo</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 
-	</pluginRepositories>
-	<build>
-
-		<extensions>
-			<extension>
-				<groupId>org.apache.maven.wagon</groupId>
-				<artifactId>wagon-ssh</artifactId>
-				<version>2.10</version>
-			</extension>
-		</extensions>
-	</build>
-	<dependencies>
-		<dependency>
-			<groupId>msi.gama</groupId>
-			<artifactId>msi.gama.core</artifactId>
-			<version>1.7.0-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
 	<profiles>
 		<!-- This profile is used to upload the repo -->
 		<profile>
 			<id>p2Repo</id>
 			<properties>
 				<!-- Properties relative to the distant host where to upload the repo -->
-				<ftp.url>sftp://51.255.46.42</ftp.url>
-				<ftp.toDir>./var/www/gama_updates/experimental</ftp.toDir>
+				<ftp.url>scp://51.255.46.42</ftp.url>
+				<ftp.toDir>./var/www/gama_updates/repo</ftp.toDir>
 				<!-- Relative path to the repo being uploaded -->
 				<repo.path>${project.build.directory}/repository/</repo.path>
 			</properties>
 
 			<build>
 				<plugins>
+					<plugin>
+						<artifactId>maven-deploy-plugin</artifactId>
+						<version>2.5</version>
+						<dependencies>
+							<dependency>
+								<groupId>org.apache.maven.wagon</groupId>
+								<artifactId>wagon-ssh</artifactId>
+								<version>2.12</version>
+							</dependency>
+						</dependencies>
+					</plugin>
 					<!-- Upload the repo to the server -->
 					<plugin>
 						<groupId>org.codehaus.mojo</groupId>
@@ -67,11 +60,21 @@
 						<executions>
 							<execution>
 								<id>p2Repo</id>
-								<phase>install</phase>
+								<phase>deploy</phase>
 								<goals>
 									<goal>upload</goal>
 								</goals>
 								<configuration>
+									<rules>
+										<requireFilesSize>
+											<maxsize>50000</maxsize>
+											<minsize>90</minsize>
+										</requireFilesSize>
+									</rules>
+									<removeAll>true</removeAll>
+									<excludes>
+										<exclude>**/msi/gama/ummisco.gama.product/*</exclude>
+									</excludes>
 									<fromDir>${repo.path}</fromDir>
 									<includes>**</includes>
 									<toDir>${ftp.toDir}</toDir>
@@ -92,5 +95,25 @@
 			</build>
 		</profile>
 	</profiles>
+
+
+
+	<build>
+
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>2.12</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>2.12</version>
+			</extension>
+		</extensions>
+	</build>
+
 	<groupId>msi.gama</groupId>
+	<version>1.7.0-SNAPSHOT</version>
 </project>

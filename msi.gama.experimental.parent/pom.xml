@@ -78,15 +78,17 @@
 			<name>sourceforge-repository</name>
 			<url>http://logicaldoc.sourceforge.net/maven/</url>
 		</repository>
-		<!-- <repository> <id>ossrh</id> <name>Sonatype Nexus Snapshots</name> 
-			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> 
-			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
-			</snapshots> </repository> <repository> <id>ossrh</id> <name>Sonatype Nexus 
-			Snapshots</name> <url>https://oss.sonatype.org/content/groups/public/</url> 
-			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
-			</snapshots> </repository> <repository> <id>annot-local-repo</id> <url>${project.baseUri}../msi.gama.processor/processor/plugins</url> 
-			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
-			</snapshots> </repository> -->
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<id>p2Repo</id>
+			<name>p2Repo</name>
+			<url>http://51.255.46.42/./var/www/gama_updates/repo/</url>
+		</repository>
 		<repository>
 			<id>pentaho-releases</id>
 			<url>http://repository.pentaho.org/artifactory/repo/</url>
@@ -97,9 +99,22 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
+		<!-- <repository> <id>ossrh</id> <name>Sonatype Nexus Snapshots</name> 
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url> 
+			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
+			</snapshots> </repository> <repository> <id>annot-local-repo</id> <url>${project.baseUri}../msi.gama.processor/processor/plugins</url> 
+			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
+			</snapshots> </repository> -->
 
 	</repositories>
-
+	
+	<dependencies>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>msi.gama.core</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
 
 
 	<modules>

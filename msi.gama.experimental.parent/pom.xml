@@ -16,7 +16,7 @@
 	<pluginRepositories>
 		<pluginRepository>
 			<id>p2Repo</id>
-			<url>http://51.255.46.42/./var/www/gama_updates/repo</url>
+			<url>http://51.255.46.42/updates/repo</url>
 			<layout>default</layout>
 		</pluginRepository>
 		<pluginRepository>
@@ -67,7 +67,7 @@
 			<name>imageio-ext Repository</name>
 			<url>http://maven.geo-solutions.it/</url>
 		</repository>
-		
+
 		<repository>
 			<snapshots>
 				<enabled>true</enabled>
@@ -99,7 +99,7 @@
 			</releases>
 			<id>p2Repo</id>
 			<name>p2Repo</name>
-			<url>http://51.255.46.42/./var/www/gama_updates/repo/</url>
+			<url>http://51.255.46.42/updates/repo/</url>
 		</repository>
 		<repository>
 			<id>pentaho-releases</id>
@@ -119,7 +119,41 @@
 			</snapshots> </repository> -->
 
 	</repositories>
-	
+
+	<dependencies>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>ummisco.gama.annotations</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>msi.gama.processor</artifactId>
+			<version>1.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>msi.gama.core</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>msi.gama.ext</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>ummisco.gama.network</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>msi.gama</groupId>
+			<artifactId>ummisco.gama.serialize</artifactId>
+			<version>1.7.0-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+
+
 	<modules>
 
 		<!-- <module>../gama.target.platform</module> -->

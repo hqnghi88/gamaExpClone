@@ -146,8 +146,9 @@
 		<module>../simtools.gamanalyzer.fr</module>
 		<module>../ummisco.gama.gaming</module>
 		<module>../ummisco.gama.remote.gui</module>
+		<!-- 
 		<module>../msi.gama.experimental.p2updatesite</module>
-		<!-- -->
+		-->
 
 	</modules>
 

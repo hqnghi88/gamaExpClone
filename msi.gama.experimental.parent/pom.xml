@@ -8,8 +8,11 @@
 	<version>1.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<pluginRepositories>
-		<!-- <pluginRepository> <id>p2Repo</id> <url>https://51.255.46.42/./var/www/gama_updates/repo</url> 
-			<layout>default</layout> </pluginRepository> -->
+		<pluginRepository>
+			<id>p2Repo</id>
+			<url>https://51.255.46.42/./var/www/gama_updates/repo</url>
+			<layout>default</layout>
+		</pluginRepository>
 
 		<pluginRepository>
 			<id>buchen-maven-repo</id>
@@ -88,28 +91,11 @@
 				<enabled>true</enabled>
 			</snapshots>
 		</repository>
-		<!--  
-		<repository>
-			<id>Sonatype Nexus snapshot</id>
-			<url>https://oss.sonatype.org/content/repositories/codehaus-snapshots/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		-->
-		<repository>
-			<id>annot-local-repo</id>
-			<url>${project.baseUri}../msi.gama.processor/processor/plugins</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
+		<!-- <repository> <id>Sonatype Nexus snapshot</id> <url>https://oss.sonatype.org/content/repositories/codehaus-snapshots/</url> 
+			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
+			</snapshots> </repository> <repository> <id>annot-local-repo</id> <url>${project.baseUri}../msi.gama.processor/processor/plugins</url> 
+			<releases> <enabled>true</enabled> </releases> <snapshots> <enabled>true</enabled> 
+			</snapshots> </repository> -->
 
 	</repositories>
 
@@ -246,7 +232,7 @@
 						<annotationProcessor>msi.gama.precompiler.GamaProcessor</annotationProcessor>
 					</annotationProcessors>
 				</configuration>
-				
+
 			</plugin>
 			<plugin>
 				<!-- You can see the effect of Execution Environnement here : https://wiki.eclipse.org/Tycho/Execution_Environments 

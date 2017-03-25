@@ -67,6 +67,18 @@
 			<name>imageio-ext Repository</name>
 			<url>http://maven.geo-solutions.it/</url>
 		</repository>
+		
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<id>sonatype</id>
+			<name>sonatype</name>
+			<url>https://oss.sonatype.org/content/repositories/codehaus-snapshots/</url>
+		</repository>
 		<repository>
 			<snapshots>
 				<enabled>true</enabled>

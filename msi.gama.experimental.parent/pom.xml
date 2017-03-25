@@ -75,8 +75,8 @@
 			<releases>
 				<enabled>true</enabled>
 			</releases>
-			<id>sonatype</id>
-			<name>sonatype</name>
+			<id>codehaus-snapshots</id>
+			<name>codehaus-snapshots</name>
 			<url>https://oss.sonatype.org/content/repositories/codehaus-snapshots/</url>
 		</repository>
 		<repository>

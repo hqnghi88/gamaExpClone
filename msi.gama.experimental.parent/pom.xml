@@ -16,7 +16,7 @@
 
 		<pluginRepository>
 			<id>p2Repo</id>
-			<url>http://51.255.46.42/./var/www/gama_updates/repo</url>
+			<url>https://51.255.46.42/./var/www/gama_updates/repo</url>
 			<layout>default</layout>
 		</pluginRepository>
 
@@ -79,7 +79,7 @@
 		<repository>
 			<id>p2Repo</id>
 			<name>GAMA p2Repo</name>
-			<url>http://51.255.46.42/./var/www/gama_updates/repo/</url>
+			<url>https://51.255.46.42/./var/www/gama_updates/repo/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

@@ -16,7 +16,7 @@
 
 		<pluginRepository>
 			<id>p2Repo</id>
-			<url>http://51.255.46.42/updates/repo/plugins</url>
+			<url>http://51.255.46.42/updates/repo</url>
 			<layout>default</layout>
 		</pluginRepository>
 
@@ -255,8 +255,7 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
-			</plugin>
-			
+			</plugin>			
 			<plugin>
 				<groupId>org.eclipse.tycho</groupId>
 				<artifactId>tycho-maven-plugin</artifactId>

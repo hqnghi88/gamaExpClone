@@ -1,4 +1,3 @@
 cd msi.gama.experimental.parent &&
-mvn validate -U &&
-mvn clean install &&
+mvn -X -U clean install &&
 cd -

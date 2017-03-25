@@ -1,3 +1,3 @@
 cd msi.gama.experimental.parent &&
-mvn --update-snapshots clean install &&
+mvn -U --update-snapshots clean install &&
 cd -

@@ -93,8 +93,10 @@
 		<repository>
 			<snapshots>
 				<enabled>true</enabled>
+				<checksumPolicy>ignore</checksumPolicy>
 			</snapshots>
-			<releases>
+			<releases>            
+				<checksumPolicy>ignore</checksumPolicy>
 				<enabled>true</enabled>
 			</releases>
 			<id>p2Repo</id>

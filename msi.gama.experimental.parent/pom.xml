@@ -97,7 +97,7 @@
 				<enabled>true</enabled>
 			</releases>
 			<snapshots>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 		<!-- 
@@ -250,27 +250,27 @@
 	<dependency>
 	  <groupId>msi.gama</groupId>
 	  <artifactId>msi.gama.processor</artifactId>
-	  <version>1.4.0-SNAPSHOT</version>
+	  <version>1.4.0</version>
 	</dependency>			
 	<dependency>
 	  <groupId>msi.gama</groupId>
 	  <artifactId>msi.gama.core</artifactId>
-	  <version>1.7.0-SNAPSHOT</version>
+	  <version>1.7.0</version>
 	</dependency>
 	<dependency> 
 	  <groupId>msi.gama</groupId>
 	  <artifactId>msi.gama.ext</artifactId>
-	  <version>1.7.0-SNAPSHOT</version>
+	  <version>1.7.0</version>
 	</dependency>	
 	<dependency>
 	  <groupId>msi.gama</groupId>
 	  <artifactId>ummisco.gama.network</artifactId>
-	  <version>1.7.0-SNAPSHOT</version>
+	  <version>1.7.0</version>
 	</dependency>
 	<dependency>
 	  <groupId>msi.gama</groupId>
 	  <artifactId>ummisco.gama.serialize</artifactId>
-	  <version>1.7.0-SNAPSHOT</version>
+	  <version>1.7.0</version>
 	</dependency>
 </dependencies>
 

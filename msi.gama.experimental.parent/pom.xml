@@ -7,18 +7,15 @@
 	<artifactId>msi.gama.experimental.parent</artifactId>
 	<version>1.7.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
-	<!-- <distributionManagement> <snapshotRepository> <id>releases</id> <name>Sonatype 
-		Nexus snapshot repository</name> <url>https://oss.sonatype.org/content/repositories/snapshots</url> 
-		</snapshotRepository> <repository> <id>releases</id> <name>Sonatype Nexus 
-		release repository</name> <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url> 
-		</repository> </distributionManagement> -->
 	<pluginRepositories>
+<!-- 
 
 		<pluginRepository>
 			<id>p2Repo</id>
 			<url>https://51.255.46.42/./var/www/gama_updates/repo</url>
 			<layout>default</layout>
 		</pluginRepository>
+ -->
 
 		<pluginRepository>
 			<id>buchen-maven-repo</id>
@@ -34,6 +31,17 @@
 
 	</pluginRepositories>
 	<repositories>
+		<repository>
+			<id>p2Repo</id>
+			<name>GAMA p2Repo</name>
+			<url>http://51.255.46.42/updates/repo/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
 		<repository>
 			<id>portfolio-non-maven-dependencies</id>
 			<url>https://buchen.github.io/maven-repo</url>
@@ -75,18 +83,7 @@
 			<id>sourceforge-repository</id>
 			<name>sourceforge-repository</name>
 			<url>http://logicaldoc.sourceforge.net/maven/</url>
-		</repository>
-		<repository>
-			<id>p2Repo</id>
-			<name>GAMA p2Repo</name>
-			<url>https://51.255.46.42/./var/www/gama_updates/repo/</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
+		</repository>		
 		<repository>
 			<id>pentaho-releases</id>
 			<url>http://repository.pentaho.org/artifactory/repo/</url>
@@ -199,7 +196,7 @@
 			<artifactId>msi.gama.core</artifactId>
 			<version>1.7.0-SNAPSHOT</version>
 		</dependency>
-<!--  
+
 		<dependency>
 			<groupId>msi.gama</groupId>
 			<artifactId>ummisco.gama.annotations</artifactId>
@@ -225,7 +222,6 @@
 			<artifactId>ummisco.gama.serialize</artifactId>
 			<version>1.7.0-SNAPSHOT</version>
 		</dependency>
--->
 	</dependencies>
 	<build>
 		<extensions>

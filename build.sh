@@ -66,8 +66,8 @@ generate_p2updatesite_category(){
       fi; 
     done
 
-    modules="$modules </modules>"$'\n'
-    echo $modules
+    echo $cate
 }
 
 
+generate_p2updatesite_category

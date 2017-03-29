@@ -54,7 +54,7 @@ generate_p2updatesite_category(){
                     if [[ ${file} == ${artifactId[$i]} ]]; then	
                         q=".qualifier"
                         v=${version[$i]}
-                        v=${version[$i]/-SNAPSHOT/$q}
+                        v=${v/-SNAPSHOT/$q}
                         echo "$v" 
                     fi
                 done

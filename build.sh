@@ -39,22 +39,23 @@ generate_p2updatesite_category(){
     current_modules=$(<msi.gama.experimental.p2updatesite/category_body.xml)
     footer=$(<msi.gama.experimental.p2updatesite/category_footer.xml)
 
-    modules=$'\n'$"<modules>"$'\n'
+    cate=$'\n'$" "$'\n'
     for file in *; do 
       if [[ -d "$file" && ! -L "$file" ]]; then
         echo "$file is a directory"; 
         if [ -f "$file/pom.xml" ]; then
             echo "File $file/pom.xml found!"        
-            modules="$modules <module>../$file</module> "$'\n'
+            
             if [[ ${file} == *"feature"* ]]; then	
                 version=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactId=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
-                echo "$artifactId"
-                echo "$version"
-                second=".qualifier"
-                version=${version/-SNAPSHOT/$second}
-
-                echo "$version"                
+                for i in ${!version[*]}
+                do
+                  echo "$i" "${version[$i]}"
+                  # instead of echo use the values to send emails, etc
+                done
+             
+                
             fi
         fi
       fi; 

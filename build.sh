@@ -17,3 +17,6 @@ done
 modules="$modules </modules>"$'\n'
 echo $modules
 echo " $header $modules $footer " > msi.gama.experimental.parent/pom.xml
+git add -A
+git commit -m "ci skip"
+git push

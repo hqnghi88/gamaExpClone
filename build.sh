@@ -17,6 +17,11 @@ done
 modules="$modules </modules>"$'\n'
 echo $modules
 echo " $header $modules $footer " > msi.gama.experimental.parent/pom.xml
+
+
+git config --global push.default simple
+git remote rm origin
+git remote add origin https://hqnghi88:$HQN_KEY@github.com/hqnghi88/gamaExpClone.git
 git add -A
-git commit -m "ci skip"
-git push
+git commit -m "[ci skip] generate parent pom"
+git push origin HEAD:master

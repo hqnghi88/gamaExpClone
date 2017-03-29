@@ -59,6 +59,6 @@ generate_p2updatesite_category(){
     echo $modules
 }
 
-}
+
 //generate_parent_pom
 generate_p2updatesite_category

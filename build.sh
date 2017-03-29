@@ -1,9 +1,9 @@
 #!/bin/bash
 header=$(<msi.gama.experimental.parent/pom_header.xml)
 
-footer=$(<msi.gama.experimental.parent/pom_header.xml)
+footer=$(<msi.gama.experimental.parent/pom_footer.xml)
 
-modules=$"<modules>"$'\n'
+modules=$'\n'$"<modules>"$'\n'
 for file in *; do 
   if [[ -d "$file" && ! -L "$file" ]]; then
     echo "$file is a directory"; 
@@ -15,7 +15,7 @@ for file in *; do
 done
 
 modules="$modules </modules>"$'\n'
-echo $modules
+echo "$modules" > msi.gama.experimental.parent/pom_modules.xml
 echo " $header $modules $footer " > msi.gama.experimental.parent/pom.xml
 
 

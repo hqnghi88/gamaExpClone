@@ -30,5 +30,5 @@ modules="$modules </modules>"$'\n'
 if [["$current_modules" != "$modules" ]]; then
     echo "$modules" > msi.gama.experimental.parent/pom_modules.xml
     echo " $header $modules $footer " > msi.gama.experimental.parent/pom.xml
-    git_push()
+    git_push
 fi

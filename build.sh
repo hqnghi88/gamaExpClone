@@ -49,7 +49,7 @@ generate_p2updatesite_category(){
             if [[ ${file} == *"feature"* ]]; then	
                 versions=($(grep -oP '(?<=versions>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactIds>)[^<]+' "$file/pom.xml"))
-                for i in ${!version[*]}
+                for i in ${!versions[*]}
                 do
                     echo "$i" "${artifactIds[$i]}"
                     echo "$i" "${versions[$i]}"
@@ -72,5 +72,4 @@ generate_p2updatesite_category(){
 }
 
 
-//generate_parent_pom
 generate_p2updatesite_category

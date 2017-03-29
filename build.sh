@@ -46,7 +46,7 @@ generate_p2updatesite_category(){
         if [ -f "$file/pom.xml" ]; then
             echo "File $file/pom.xml found!"        
             modules="$modules <module>../$file</module> "$'\n'
-            if [[ ${MESSAGE} == *"feature"* ]]; then	
+            if [[ ${file} == *"feature"* ]]; then	
                 version=($(grep -oP '(?<=version>)[^<]+' "$file/feature.xml"))
                 artifactId=($(grep -oP '(?<=artifactId>)[^<]+' "$file/feature.xml"))
                 echo "$artifactId"

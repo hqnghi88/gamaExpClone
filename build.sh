@@ -71,4 +71,3 @@ generate_p2updatesite_category(){
 }
 
 
-generate_p2updatesite_category

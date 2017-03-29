@@ -49,10 +49,12 @@ generate_p2updatesite_category(){
             if [[ ${file} == *"feature"* ]]; then	
                 version=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactId=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
-                feature=($(grep -oP '(?<=artifactId>)[^<]+' "$file/feature.xml"))
                 echo "$artifactId"
                 echo "$version"
-                echo "$feature"
+                second=".qualifier"
+                version=${version/-SNAPSHOT/$second}
+
+                echo "$version"                
             fi
         fi
       fi; 

@@ -47,7 +47,8 @@ generate_p2updatesite_category(){
             echo "File $file/pom.xml found!"        
             modules="$modules <module>../$file</module> "$'\n'
             data=$(<$file/pom.xml)
-            version=$(grep -oPm1 "(?<=<version>)[^<]+" <<< "$data")
+            version=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
+
             echo "$version"
             
         fi

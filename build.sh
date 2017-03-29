@@ -51,6 +51,7 @@ generate_p2updatesite_category(){
                 artifactId=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
                 for i in ${!version[*]}
                 do
+                  echo "$i" "${artifactId[$i]}"
                   echo "$i" "${version[$i]}"
                   # instead of echo use the values to send emails, etc
                 done

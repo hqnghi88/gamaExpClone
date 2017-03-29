@@ -47,17 +47,17 @@ generate_p2updatesite_category(){
             echo "File $file/pom.xml found!"        
             
             if [[ ${file} == *"feature"* ]]; then	
-                versions=($(grep -oP '(?<=versions>)[^<]+' "$file/pom.xml"))
-                artifactIds=($(grep -oP '(?<=artifactIds>)[^<]+' "$file/pom.xml"))
-                for i in ${!versions[*]}
+                version=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
+                artifactId=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
+                for i in ${!version[*]}
                 do
-                    echo "$i" "${artifactIds[$i]}"
-                    echo "$i" "${versions[$i]}"
-                    if [[ ${file} == ${artifactIds[$i]} ]]; then	
+                    echo "$i" "${artifactId[$i]}"
+                    echo "$i" "${version[$i]}"
+                    if [[ ${file} == ${artifactId[$i]} ]]; then	
                         q=".qualifier"
-                        version=${versions[$i]}
-                        version=${version/-SNAPSHOT/$q}
-                        echo "$version" 
+                        v=${version[$i]}
+                        v=${v/-SNAPSHOT/$q}
+                        echo "$v" 
                     fi
                 done
              

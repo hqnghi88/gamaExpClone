@@ -19,6 +19,8 @@ echo $modules
 echo " $header $modules $footer " > msi.gama.experimental.parent/pom.xml
 
 
+git config --global user.email "travis@travis-ci.com"
+git config --global user.name "hqnghi88"
 git config --global push.default simple
 git remote rm origin
 git remote add origin https://hqnghi88:$HQN_KEY@github.com/hqnghi88/gamaExpClone.git

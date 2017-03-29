@@ -51,6 +51,7 @@ generate_p2updatesite_category(){
                 artifactId=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
                 for i in ${!version[*]}
                 do
+                    echo ${artifactId[$i]}
                     if [[ ${file} == ${artifactId[$i]} ]]; then	
                         q=".qualifier"
                         v=${version[$i]}

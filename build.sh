@@ -45,8 +45,7 @@ generate_p2updatesite_category(){
          if [[ -f "$file/pom.xml" && ${file} != *"msi.gama.experimental.parent"* ]]; then
             
             if [[ ${file} == *"feature"* ]]; then	
-                sed -n 's|<parent>\(.*\)</parent>|\1|p'  "$file/pom.xml"
-                
+                sed "s/.* version=\"\(.*\)\".*/\1/" "$file/feature.xml"             
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
                 

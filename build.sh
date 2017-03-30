@@ -45,14 +45,14 @@ generate_p2updatesite_category(){
          if [[ -f "$file/pom.xml" && ${file} != *"msi.gama.experimental.parent"* ]]; then
             
             if [[ ${file} == *"feature"* ]]; then	
-               
+               echo $file
                
                version=$(sed '/<parent>/,/<\/parent>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
                 
                  q=$".qualifier"
                         version=${version/-SNAPSHOT/$q}
                         
-                  cate="$cate <feature  url=\"features/$file_$version.jar\" id=\"$file\" version=\"$version\"> <category name=\"gama.optional\"/>   </feature>"$'\n'                   
+                  cate="$cate <feature  url=\"features/"$file"_$version.jar\" id=\"$file\" version=\"$version\"> <category name=\"gama.optional\"/>   </feature>"$'\n'                   
                    
                   echo $cate 
                 

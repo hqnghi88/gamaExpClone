@@ -31,12 +31,11 @@ generate_parent_pom(){
     if [[ "$current_modules" != "$modules" ]]; then
         echo "$modules" > msi.gama.experimental.parent/pom_modules.xml
         echo " $header $modules $footer " > msi.gama.experimental.parent/pom.xml
-        git_push
     fi
 }
 generate_p2updatesite_category(){
     header=$(<msi.gama.experimental.p2updatesite/category_header.xml)
-    current_modules=$(<msi.gama.experimental.p2updatesite/category_body.xml)
+    current_cate=$(<msi.gama.experimental.p2updatesite/category_body.xml)
     footer=$(<msi.gama.experimental.p2updatesite/category_footer.xml)
 
     cate=$'\n'$" "$'\n'
@@ -45,16 +44,14 @@ generate_p2updatesite_category(){
          if [[ -f "$file/pom.xml" && ${file} != *"msi.gama.experimental.parent"* ]]; then
             
             if [[ ${file} == *"feature"* ]]; then	
-               echo $file
                
-               version=$(sed '/<parent>/,/<\/parent>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
-                
-                 q=$".qualifier"
-                        version=${version/-SNAPSHOT/$q}
-                        
-                  cate="$cate <feature  url=\"features/"$file"_$version.jar\" id=\"$file\" version=\"$version\"> <category name=\"gama.optional\"/>   </feature>"$'\n'                   
+                version=$(sed '/<parent>/,/<\/parent>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
+
+                q=$".qualifier"
+                version=${version/-SNAPSHOT/$q}
+
+                cate="$cate <feature  url=\"features/"$file"_$version.jar\" id=\"$file\" version=\"$version\"> <category name=\"gama.optional\"/>   </feature>"$'\n'                   
                    
-                  echo $cate 
                 
             fi
         fi
@@ -62,7 +59,13 @@ generate_p2updatesite_category(){
     done
 
     echo $cate
+    
+    if [[ "$current_cate" != "$cate" ]]; then
+        echo "$cate" > msi.gama.experimental.p2updatesite/category_body.xml
+        echo " $header $cate $footer " > msi.gama.experimental.p2updatesite/category.xml
+    fi
 }
 
-
+generate_parent_pom
 generate_p2updatesite_category
+git_push

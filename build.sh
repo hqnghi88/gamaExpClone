@@ -50,25 +50,9 @@ generate_p2updatesite_category(){
                line=$(sed -n '/token/s/.*id="$file"\s\+version="\([^"]\+\).*/\1/p' "$file/feature.xml")
                line=$(sed '/<project>/,/<\/project>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
 echo "$line cccccc"
-               
-                versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
-                artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
-                
-                for i in ${!versions[*]}
-                do
-                    echo "$i" "${artifactIds[$i]}"
-                    echo "$i" "${versions[$i]}"
-                    
-                        version=${versions[$i]}
-                        version=${version/-SNAPSHOT/$q}
-                        echo "$version xx" 
-                    if [[ ${file} == ${artifactIds[$i]} ]]; then	
-                        q=$".qualifier"
-                        version=${versions[$i]}
-                        version=${version/-SNAPSHOT/$q}
-                        echo "$version" 
-                    fi
-                done
+                 q=$".qualifier"
+                        version=${line/-SNAPSHOT/$q}
+                        echo "$version  xxxxx" 
              
                 
             fi

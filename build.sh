@@ -48,10 +48,10 @@ generate_p2updatesite_category(){
                
                
                version=$(sed '/<project>/,/<\/project>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
-                echo "$version cccccc"
+                echo "ccc $version cccccc"
                  q=$".qualifier"
                         version=${version/-SNAPSHOT/$q}
-                        echo "$version  xxxxx" 
+                        echo "xxx $version  xxxxx" 
              
                 
             fi

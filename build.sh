@@ -42,7 +42,7 @@ generate_p2updatesite_category(){
     cate=$'\n'$" "$'\n'
     for file in *; do 
       if [[ -d "$file" && ! -L "$file" ]]; then
-        if [ -f "$file/pom.xml" ]; then 
+         if [[ -f "$file/pom.xml" && "$file" != "msi.gama.experimental.parent" ]]; then
             
             if [[ ${file} == *"feature"* ]]; then	
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))

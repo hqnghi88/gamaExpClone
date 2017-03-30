@@ -47,7 +47,7 @@ generate_p2updatesite_category(){
             if [[ ${file} == *"feature"* ]]; then	
                
                
-               version=$(sed '/<project>/,/<\/project>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
+               version=$(sed '/<parent>/,/<\/parent>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
                 echo "ccc $version cccccc"
                  q=$".qualifier"
                         version=${version/-SNAPSHOT/$q}

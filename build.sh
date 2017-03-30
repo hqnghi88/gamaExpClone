@@ -48,9 +48,8 @@ generate_p2updatesite_category(){
                
                
                line=$(sed -n '/token/s/.*id="$file"\s\+version="\([^"]\+\).*/\1/p' "$file/feature.xml")
+               line=$(sed '/<project>/,/<\/project>/d;/<version>/!d;s/ *<\/\?version> *//g' "$file/pom.xml")
 echo "$line cccccc"
-               eval $(tr '[< >]' '\n' < "$file/feature.xml" | egrep 'id|version')
-               echo $id $version
                
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))

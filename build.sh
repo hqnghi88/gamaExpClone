@@ -46,8 +46,9 @@ generate_p2updatesite_category(){
             
             if [[ ${file} == *"feature"* ]]; then	
                
-               sed -n '/token/s/.*id="$file"\s\+version="\([^"]\+\).*/\1/p' "$file/feature.xml"
                
+               line=$(sed -n '/token/s/.*id="$file"\s\+version="\([^"]\+\).*/\1/p' "$file/feature.xml")
+echo "$line cccccc"
                eval $(tr '[< >]' '\n' < "$file/feature.xml" | egrep 'id|version')
                echo $id $version
                

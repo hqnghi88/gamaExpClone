@@ -46,6 +46,10 @@ generate_p2updatesite_category(){
             
             if [[ ${file} == *"feature"* ]]; then	
                
+
+tag_list=( $(grep -o -e "^\s*<\w.\w*>$" $1 | tr -d ' <>' | sed s/^n://g | sort -u ))
+printf "\n%s%s\n" "tag_name=\"" "${tag_list[*]}\""
+
                eval $(tr '[< >]' '\n' < "$file/feature.xml" | egrep 'id|version')
                echo $id $version
                

@@ -46,7 +46,7 @@ generate_p2updatesite_category(){
             
             if [[ ${file} == *"feature"* ]]; then	
                 parents=($(grep -oP '(?<=parent>)[^<]+' "$file/pom.xml"))
-                echo $parents
+                echo "$parents"
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
                 

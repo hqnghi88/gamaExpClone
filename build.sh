@@ -46,13 +46,8 @@ generate_p2updatesite_category(){
             
             if [[ ${file} == *"feature"* ]]; then	
                
-               while read line
-                do
-                trans=$(echo $line | sed -n 's/.*\" id=\"\([^"]*\)\" .*/\1/p')
-                doc=$(echo $line | sed ' -n s/.*\" version=\"\([^"]*\)\".*/\1/p')
-                echo "$trans"
-                echo "$docs"
-                done < "$file/feature.xml"
+               eval $(tr '[< >]' '\n' < "$file/feature.xml" | egrep 'id|version')
+               echo $id $version
                
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))

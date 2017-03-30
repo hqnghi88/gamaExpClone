@@ -49,6 +49,8 @@ generate_p2updatesite_category(){
             if [[ ${file} == *"feature"* ]]; then	
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
+                echo -e '...' | xmlstarlet sel -t -v "//artifactId[1]"
+                
                 for i in ${!versions[*]}
                 do
                     echo "$i" "${artifactIds[$i]}"

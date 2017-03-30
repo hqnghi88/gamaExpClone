@@ -42,14 +42,11 @@ generate_p2updatesite_category(){
     cate=$'\n'$" "$'\n'
     for file in *; do 
       if [[ -d "$file" && ! -L "$file" ]]; then
-        echo "$file is a directory"; 
-        if [ -f "$file/pom.xml" ]; then
-            echo "File $file/pom.xml found!"        
+        if [ -f "$file/pom.xml" ]; then 
             
             if [[ ${file} == *"feature"* ]]; then	
                 versions=($(grep -oP '(?<=version>)[^<]+' "$file/pom.xml"))
                 artifactIds=($(grep -oP '(?<=artifactId>)[^<]+' "$file/pom.xml"))
-                echo -e '...' | xmlstarlet sel -t -v "//artifactId[1]"
                 
                 for i in ${!versions[*]}
                 do
